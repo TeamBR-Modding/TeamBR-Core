@@ -91,12 +91,12 @@ uploadArchives {
             }
         }
         pom {
-            groupId = project.group
-            version = project.version
-            artifactId = project.archivesBaseName
+            groupId = group
+            version = version
+            artifactId = archivesBaseName
         }
         pom.project {
-            name project.archivesBaseName
+            name archivesBaseName
             packaging 'jar'
             description 'TeamBR-Core'
             url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
