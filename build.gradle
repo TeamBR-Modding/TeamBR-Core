@@ -27,7 +27,7 @@ configFile.withReader {
 
 version = "${config.minecraft_version}-${config.mod_version}-B" + System.getenv("BUILD_NUMBER")
 group= "com.dyonovan.teambrcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "teambrcore"
+archivesBaseName = "TeamBR-Core"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
@@ -81,7 +81,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: System.getenv("URL")) {
-                authentication(userName: System.getenv("USERNAME"), password: System.getenv("PASSWORD"))
+                authentication(userName: System.properties['HTTPUSERNAME'], System.properties['HTTPPASSWORD'])
             }
         }
         pom {
