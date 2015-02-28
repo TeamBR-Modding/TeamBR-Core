@@ -69,12 +69,12 @@ artifacts {
     archives devJar
 }
 
-configurations {
-    deployerJars
-}
+//configurations {
+//    deployerJars
+//}
 
 dependencies {
-    deployerJars "org.apache.maven.wagon:wagon-ftp:2.2"
+//    deployerJars "org.apache.maven.wagon:wagon-ftp:2.2"
 }
 
 uploadArchives {
