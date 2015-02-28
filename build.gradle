@@ -16,6 +16,7 @@ buildscript {
 }
 
 apply plugin: 'forge'
+apply plugin: 'maven'
 
 ext.configFile = file "build.properties"
 configFile.withReader {
@@ -68,5 +69,73 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+task devJar(type: Jar, dependsOn: 'classes') {
+    from(sourceSets.main.output) {
+        include '**'
+    }
+    extension = 'jar'
+    classifier = 'dev'
+}
+
+artifacts {
+    archives devJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            if (project.hasProperty("forgemaven_url")) {
+                logger.info('Publishing to files server')
+                repository(url: project.forgemaven_url) {
+                    authentication(userName: project.forgemaven_username, password: project.forgemaven_password)
+                }
+            }
+            pom {
+                groupId = project.group
+                version = project.version
+                artifactId = project.archivesBaseName
+            }
+            pom.project {
+                name project.archivesBaseName
+                packaging 'jar'
+                description 'TeamBR-Core'
+                url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
+                scm {
+                    url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
+                    connection 'scm:git:git://github.com/TeamBR-Modding/TeamBR-Core.git'
+                    developerConnection 'scm:git:git@github.com/TeamBR-Modding/TeamBR-Core.git'
+                }
+                issueManagement {
+                    system 'github'
+                    url 'https://github.com/TeamBR-Modding/TeamBR-Core/issues'
+                }
+                licenses {
+                    license {
+                        name 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License'
+                        url 'http://creativecommons.org/licenses/by-nc-sa/4.0/'
+                        distribution 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'Dyonovan'
+                        name 'Dyonovan'
+                        roles {
+                            role 'developer'
+                        }
+                    }
+                    developer {
+                        id 'pauljoda'
+                        name 'pauljoda'
+                        roles {
+                            role 'developer'
+                        }
+                    }
+                }
+            }
+        }
     }
 }
