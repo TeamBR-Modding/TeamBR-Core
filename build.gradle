@@ -85,7 +85,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             configuration = configurations.deployerJars
-            repository(url: System.getenv("URL")) {
+            repository(url: System.properties['URL']) {
                 authentication(userName: System.properties['HTTPUSERNAME'], System.properties['HTTPPASSWORD'])
             }
         }
