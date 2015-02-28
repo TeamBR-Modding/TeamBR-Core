@@ -86,10 +86,8 @@ artifacts {
 uploadArchives {
     repositories {
         mavenDeployer {
-            if (project.hasProperty("forgemaven_url")) {
-                logger.info('Publishing to files server')
-                repository(url: project.forgemaven_url) {
-                    authentication(userName: project.forgemaven_username, password: project.forgemaven_password)
+            repository(url: System.getenv("URL")) {
+                    authentication(userName: System.getenv("USERNAME"), password: System.getenv("PASSWORD"))
                 }
             }
             pom {
