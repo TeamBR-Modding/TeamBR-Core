@@ -27,7 +27,7 @@ configFile.withReader {
 
 version = "${config.minecraft_version}-${config.mod_version}-B" + System.getenv("BUILD_NUMBER")
 group= "com.dyonovan.teambrcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "TeamBR-Core"
+archivesBaseName = "TeamBRCore"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
@@ -97,7 +97,7 @@ uploadArchives {
             project {
                 name project.archivesBaseName
                 packaging 'jar'
-                description 'TeamBR-Core'
+                description 'TeamBRCore'
                 url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
                 scm {
                     url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
