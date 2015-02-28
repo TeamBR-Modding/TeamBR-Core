@@ -69,17 +69,22 @@ artifacts {
     archives devJar
 }
 
-//configurations {
-//    deployerJars
-//}
+configurations {
+    deployerJars
+}
 
 dependencies {
-//    deployerJars "org.apache.maven.wagon:wagon-ftp:2.2"
+    deployerJars "org.apache.maven.wagon:wagon-ftp:2.2"
+}
+
+repositories {
+    mavenCentral()
 }
 
 uploadArchives {
     repositories {
         mavenDeployer {
+            configuration = configurations.deployerJars
             repository(url: System.getenv("URL")) {
                 authentication(userName: System.properties['HTTPUSERNAME'], System.properties['HTTPPASSWORD'])
             }
