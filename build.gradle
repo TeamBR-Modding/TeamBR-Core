@@ -35,6 +35,7 @@ minecraft {
     replace "@VERSION@", "${config.mod_version}"
     runDir = "eclipse"
 }
+
 processResources
 {
     // this will ensure that this task is redone when the versions change.
