@@ -87,49 +87,48 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: System.getenv("URL")) {
-                    authentication(userName: System.getenv("USERNAME"), password: System.getenv("PASSWORD"))
-                }
+                authentication(userName: System.getenv("USERNAME"), password: System.getenv("PASSWORD"))
             }
-            pom {
-                groupId = project.group
-                version = project.version
-                artifactId = project.archivesBaseName
-            }
-            pom.project {
-                name project.archivesBaseName
-                packaging 'jar'
-                description 'TeamBR-Core'
+        }
+        pom {
+            groupId = project.group
+            version = project.version
+            artifactId = project.archivesBaseName
+        }
+        pom.project {
+            name project.archivesBaseName
+            packaging 'jar'
+            description 'TeamBR-Core'
+            url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
+            scm {
                 url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
-                scm {
-                    url 'https://github.com/TeamBR-Modding/TeamBR-Core/'
-                    connection 'scm:git:git://github.com/TeamBR-Modding/TeamBR-Core.git'
-                    developerConnection 'scm:git:git@github.com/TeamBR-Modding/TeamBR-Core.git'
+                connection 'scm:git:git://github.com/TeamBR-Modding/TeamBR-Core.git'
+                developerConnection 'scm:git:git@github.com/TeamBR-Modding/TeamBR-Core.git'
+            }
+            issueManagement {
+                system 'github'
+                url 'https://github.com/TeamBR-Modding/TeamBR-Core/issues'
+            }
+            licenses {
+                license {
+                    name 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License'
+                    url 'http://creativecommons.org/licenses/by-nc-sa/4.0/'
+                    distribution 'repo'
                 }
-                issueManagement {
-                    system 'github'
-                    url 'https://github.com/TeamBR-Modding/TeamBR-Core/issues'
-                }
-                licenses {
-                    license {
-                        name 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License'
-                        url 'http://creativecommons.org/licenses/by-nc-sa/4.0/'
-                        distribution 'repo'
+            }
+            developers {
+                developer {
+                    id 'Dyonovan'
+                    name 'Dyonovan'
+                    roles {
+                        role 'developer'
                     }
                 }
-                developers {
-                    developer {
-                        id 'Dyonovan'
-                        name 'Dyonovan'
-                        roles {
-                            role 'developer'
-                        }
-                    }
-                    developer {
-                        id 'pauljoda'
-                        name 'pauljoda'
-                        roles {
-                            role 'developer'
-                        }
+                developer {
+                    id 'pauljoda'
+                    name 'pauljoda'
+                    roles {
+                        role 'developer'
                     }
                 }
             }
