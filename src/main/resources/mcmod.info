@@ -1,13 +1,13 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "teambrcore",
+  "name": "TeamBR-Core",
+  "description": "Function Library for Team BR Modding.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "http://www.dyonovan.com",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
+  "authorList": ["Dyonovan", "pauljoda"],
   "credits": "The Forge and FML guys, for making this example",
   "logoFile": "",
   "screenshots": [],
