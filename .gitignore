@@ -153,3 +153,10 @@ pom.xml.next
 release.properties
 
 
+eclipse/*
+README.txt
+MinecraftForge-License.txt
+MinecraftForge-Credits.txt
+LICENSE-fml.txt
+forge-1.7.10-10.13.2.1230-changelog.txt
+CREDITS-fml.txt
