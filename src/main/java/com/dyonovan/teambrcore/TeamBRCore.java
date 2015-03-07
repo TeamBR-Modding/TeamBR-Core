@@ -1,6 +1,7 @@
 package com.dyonovan.teambrcore;
 
 import com.dyonovan.teambrcore.helpers.KeyInputHelper;
+import com.dyonovan.teambrcore.helpers.LogHelper;
 import com.dyonovan.teambrcore.lib.Constants;
 import com.dyonovan.teambrcore.managers.GuiManager;
 import com.dyonovan.teambrcore.notification.NotificationHelper;
@@ -11,10 +12,12 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
+import manual.ManualDirector;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
@@ -51,5 +54,20 @@ public class TeamBRCore {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
+    }
+
+    @EventHandler
+    public void processIMC(FMLInterModComms.IMCEvent event) {
+        for (FMLInterModComms.IMCMessage imcMessage : event.getMessages()) {
+            if (!imcMessage.isStringMessage()) continue;
+            if (imcMessage.key.equalsIgnoreCase("registerManual")) {
+                LogHelper.info(String.format("Receiving registration request from [ %s ] for class %s", imcMessage.getSender(), imcMessage.getStringValue()));
+                try {
+                    ManualDirector.registerManual(Class.forName(imcMessage.getStringValue()));
+                } catch (ClassNotFoundException e) {
+                    LogHelper.info(String.format("Could not register [ %s ] for class %s", imcMessage.getSender(), imcMessage.getStringValue()));
+                }
+            }
+        }
     }
 }
