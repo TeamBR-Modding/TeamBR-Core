@@ -108,7 +108,7 @@ public abstract class BaseGui extends GuiContainer {
         int width;
         int height;
         List<String> value;
-        protected Zone(int i, int j, int w, int h, List<String> v) {
+        public Zone(int i, int j, int w, int h, List<String> v) {
             x = i;
             y = j;
             width = w;
