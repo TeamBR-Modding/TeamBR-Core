@@ -1,6 +1,6 @@
 package com.dyonovan.teambrcore.gui.widget;
 
-import com.dyonovan.modernalchemy.helpers.GuiHelper;
+import com.dyonovan.teambrcore.helpers.GuiHelper;
 import net.minecraft.client.gui.Gui;
 import net.minecraftforge.fluids.FluidTank;
 
