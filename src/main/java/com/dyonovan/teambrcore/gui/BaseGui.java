@@ -102,7 +102,7 @@ public abstract class BaseGui extends GuiContainer {
         GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
     }
 
-    protected class Zone {
+    public class Zone {
         int x;
         int y;
         int width;
