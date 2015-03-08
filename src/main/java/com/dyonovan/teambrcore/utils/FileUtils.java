@@ -19,7 +19,7 @@ public class FileUtils {
      * @param dir {@link java.lang.String} directory name to list
      * @return An {@link java.util.ArrayList} of {@link java.lang.String}
      */
-    public ArrayList<String> getJarDirList(URL url, String dir) {
+    public static ArrayList<String> getJarDirList(URL url, String dir) {
         ArrayList<String> files = new ArrayList<>();
 
         if (url.toString().substring(0,3).equalsIgnoreCase("jar")) {
@@ -41,6 +41,7 @@ public class FileUtils {
         } else {
             try {
                 File apps = new File(url.toURI());
+                //noinspection ConstantConditions
                 for (File app : apps.listFiles()) {
                     files.add(app.getName());
                 }
