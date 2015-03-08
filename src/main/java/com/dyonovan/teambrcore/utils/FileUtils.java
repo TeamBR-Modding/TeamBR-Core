@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 
+@SuppressWarnings("unused")
 public class FileUtils {
 
     /**
@@ -19,6 +20,7 @@ public class FileUtils {
      * @param dir {@link java.lang.String} directory name to list
      * @return An {@link java.util.ArrayList} of {@link java.lang.String}
      */
+
     public static ArrayList<String> getJarDirList(URL url, String dir) {
         ArrayList<String> files = new ArrayList<>();
 
