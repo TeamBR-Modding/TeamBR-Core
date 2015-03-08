@@ -31,8 +31,8 @@ public class FileUtils {
                     JarEntry entry = entries.nextElement();
                     String entryName = entry.getName();
                     if (entryName.startsWith(dir)) {
-                        if (!(entryName.replaceAll(dir + "/", "").equals("")))
-                            files.add(entryName.replaceAll(dir + "/", ""));
+                        if (!(entryName.replaceAll(dir, "").equals("")))
+                            files.add(entryName.replaceAll(dir, ""));
                     }
                 }
             } catch (IOException e) {
