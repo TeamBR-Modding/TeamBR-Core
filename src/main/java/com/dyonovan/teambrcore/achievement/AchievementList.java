@@ -29,15 +29,15 @@ public abstract class AchievementList {
     }
 
     public void buildAchievement(String id, int x, int y, Item stack, Achievement parent) {
-        achievements.add(new Achievement(id, id, x, y, stack, parent));
+        achievements.add(new Achievement(id, id, x, y, stack, parent).registerStat());
     }
 
     public void buildAchievement(String id, int x, int y, Block stack, Achievement parent) {
-        achievements.add(new Achievement(id, id, x, y, stack, parent));
+        achievements.add(new Achievement(id, id, x, y, stack, parent).registerStat());
     }
 
     public void buildAchievement(String id, int x, int y, ItemStack stack, Achievement parent) {
-        achievements.add(new Achievement(id, id, x, y, stack, parent));
+        achievements.add(new Achievement(id, id, x, y, stack, parent).registerStat());
     }
 
     public abstract void initAchievements();
