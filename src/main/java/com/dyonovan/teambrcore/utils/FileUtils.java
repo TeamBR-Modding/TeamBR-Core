@@ -1,6 +1,7 @@
 package com.dyonovan.teambrcore.utils;
 
 import com.dyonovan.teambrcore.helpers.LogHelper;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +9,9 @@ import java.net.JarURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.jar.JarEntry;
 
 @SuppressWarnings("unused")
@@ -43,8 +46,10 @@ public class FileUtils {
         } else {
             try {
                 File apps = new File(url.toURI());
+                Collection<File> list = org.apache.commons.io.FileUtils.listFilesAndDirs(apps, TrueFileFilter.TRUE, TrueFileFilter.TRUE);
                 //noinspection ConstantConditions
-                for (File app : apps.listFiles()) {
+
+                for (File app : list) {
                     files.add(app.getName());
                 }
             } catch (URISyntaxException e) {
