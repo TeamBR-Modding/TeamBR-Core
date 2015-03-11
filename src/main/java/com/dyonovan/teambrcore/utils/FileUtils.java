@@ -33,9 +33,7 @@ public class FileUtils {
                 Enumeration<JarEntry> entries = jarCon.getJarFile().entries();
                 while (entries.hasMoreElements()) {
                     JarEntry entry = entries.nextElement();
-                    String entryName = entry.getName();
-                        files.add(entryName.replaceAll("\\\\", File.separator));
-
+                    files.add(entry.getName().replaceAll("\\\\", File.separator));
                 }
             } catch (IOException e) {
                 LogHelper.severe("Could not open Jar File");
@@ -49,14 +47,11 @@ public class FileUtils {
                 for (File app : list) {
                     String[] path = app.getPath().split("main");
                     if (path.length > 1)
-                        files.add(path[1]);
-                    String[] path = app.getPath().split("build/classes/main");
-                    files.add(path[1].replaceAll("\\\\", File.separator));
+                        files.add(path[1].replaceAll("\\\\", File.separator));
                 }
             } catch (URISyntaxException e) {
                 LogHelper.severe("Could not open Directory");
             }
-
         }
         return files;
     }
