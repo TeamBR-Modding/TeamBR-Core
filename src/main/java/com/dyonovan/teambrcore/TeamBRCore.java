@@ -34,7 +34,6 @@ public class TeamBRCore {
     public void preInit(FMLPreInitializationEvent event){
         if(event.getSide() == Side.CLIENT) {
             FMLCommonHandler.instance().bus().register(new NotificationTickHandler());
-
             NotificationHelper.notificationConfig = new Configuration(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator  + "TeamBR" + File.separator + "NotificationsSettings.cfg"));
             NotificationHelper.notificationXPos = NotificationHelper.notificationConfig.getInt("notification xpos", "notifications", 1, 0, 2, "0: Left\n1: Center\n2: Right");
             NotificationHelper.notificationConfig.save();

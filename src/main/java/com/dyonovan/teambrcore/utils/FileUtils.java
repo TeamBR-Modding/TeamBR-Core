@@ -45,7 +45,11 @@ public class FileUtils {
                 File apps = new File(url.toURI());
                 Collection<File> list = org.apache.commons.io.FileUtils.listFilesAndDirs(apps, TrueFileFilter.TRUE, TrueFileFilter.TRUE);
                 //noinspection ConstantConditions
+
                 for (File app : list) {
+                    String[] path = app.getPath().split("main");
+                    if (path.length > 1)
+                        files.add(path[1]);
                     String[] path = app.getPath().split("build/classes/main");
                     files.add(path[1].replaceAll("\\\\", File.separator));
                 }
