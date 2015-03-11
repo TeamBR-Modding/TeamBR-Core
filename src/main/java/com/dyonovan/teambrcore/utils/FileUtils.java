@@ -17,11 +17,11 @@ public class FileUtils {
     /**
      * Lists files in a specified Jar/Filesystem Directory
      * @param url {@link java.net.URL}
-     * @param dir {@link java.lang.String} directory name to list
+     * //@param dir {@link java.lang.String} directory name to list
      * @return An {@link java.util.ArrayList} of {@link java.lang.String}
      */
 
-    public static ArrayList<String> getJarDirList(URL url, String dir) {
+    public static ArrayList<String> getJarDirList(URL url) {
         ArrayList<String> files = new ArrayList<>();
 
         if (url.toString().substring(0,3).equalsIgnoreCase("jar")) {
@@ -32,10 +32,10 @@ public class FileUtils {
                 while (entries.hasMoreElements()) {
                     JarEntry entry = entries.nextElement();
                     String entryName = entry.getName();
-                    if (entryName.startsWith(dir)) {
-                        if (!(entryName.replaceAll(dir, "").equals("")))
-                            files.add(entryName.replaceAll(dir, ""));
-                    }
+                    //if (entryName.startsWith(dir)) {
+                        //if (!(entryName.replaceAll(dir, "").equals("")))
+                            files.add(entryName);
+                    //}
                 }
             } catch (IOException e) {
                 LogHelper.severe("Could not open Jar File");
