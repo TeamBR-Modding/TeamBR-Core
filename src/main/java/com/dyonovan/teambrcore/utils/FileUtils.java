@@ -50,7 +50,7 @@ public class FileUtils {
                 //noinspection ConstantConditions
 
                 for (File app : list) {
-                    files.add(app.getName());
+                    files.add(app.getPath());
                 }
             } catch (URISyntaxException e) {
                 LogHelper.severe("Could not open Directory");
