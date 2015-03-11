@@ -1,5 +1,6 @@
 package com.dyonovan.teambrcore;
 
+import com.dyonovan.teambrcore.achievement.AchievementRegistry;
 import com.dyonovan.teambrcore.helpers.KeyInputHelper;
 import com.dyonovan.teambrcore.lib.Constants;
 import com.dyonovan.teambrcore.managers.GuiManager;
@@ -38,6 +39,7 @@ public class TeamBRCore {
             NotificationHelper.notificationXPos = NotificationHelper.notificationConfig.getInt("notification xpos", "notifications", 1, 0, 2, "0: Left\n1: Center\n2: Right");
             NotificationHelper.notificationConfig.save();
         }
+        AchievementRegistry.instance = new AchievementRegistry();
     }
 
     @EventHandler

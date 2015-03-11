@@ -7,7 +7,7 @@ import net.minecraftforge.common.AchievementPage;
 import java.util.HashMap;
 
 public class AchievementRegistry {
-    public static AchievementRegistry instance = new AchievementRegistry();
+    public static AchievementRegistry instance;
 
     private static HashMap<String, AchievementList> achievements;
 

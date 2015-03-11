@@ -1,6 +1,7 @@
 package com.dyonovan.teambrcore.achievement;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
@@ -13,7 +14,7 @@ public abstract class AchievementList {
     protected List<Achievement> achievements;
 
     public AchievementList(String name) {
-        achievements = new ArrayList<Achievement>();
+        achievements = new ArrayList<>();
         label = name;
         AchievementRegistry.putAchievementList(this);
         initAchievements();
